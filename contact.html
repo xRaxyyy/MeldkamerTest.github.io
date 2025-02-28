@@ -57,19 +57,21 @@
             </div>
         </section>
     
-        <form class="contact-form" id="contactForm" action="send_email.php" method="POST">
+        <form class="contact-form" id="contactForm" action="https://formsubmit.co/" method="POST">
+
+            <input type="hidden" name="_captcha" value="false"> 
             <input type="hidden" name="_subject" value="Nieuw bericht van de website"> <!-- Set email subject -->
-        
+    
             <div class="info-box">
                 <div class="label" for="naam">Naam</div>
                 <input type="text" id="naam" name="naam" autocomplete="off" placeholder="Pieter Boer" required>
             </div>
-        
+    
             <div class="info-box">
                 <div class="label" for="email">Email</div>
                 <input type="email" id="email" name="email" autocomplete="off" placeholder="jouw@email.com" required>
             </div>
-        
+    
             <div class="info-box dropdown">
                 <div class="toggle-btn">
                     <i class="fa fa-chevron-down"></i>
@@ -83,15 +85,15 @@
                 </ul>
                 <input type="hidden" name="reason" id="reason" value="Selecteer Reden"> <!-- Hidden input for selected reason -->
             </div>
-        
+    
             <div class="info-box">
                 <div class="label" for="bericht">Bericht</div>
                 <textarea id="bericht" name="bericht" autocomplete="off" placeholder="Laat een bericht achter" required></textarea>
             </div>
-        
+    
             <button type="submit">Verzenden</button>
         </form>
-        
+    
         <div id="success-message">
             <p>Bedankt! Uw bericht is verzonden.</p>
         </div>
@@ -158,6 +160,17 @@
             const successMessage = document.getElementById('success-message');
             const errorMessage = document.getElementById('error-message');
 
+            // Dynamically set the form action using the environment variable
+            const formsubmitEmail = process.env.FORMSUBMIT_EMAIL; // Read from Vercel env vars
+            if (!formsubmitEmail) {
+                console.error("FORMSUBMIT_EMAIL environment variable is not set.");
+                errorMessage.classList.add('show');
+                return;
+            }
+
+            form.action = `https://formsubmit.co/${formsubmitEmail}`;
+
+            // Handle form submission
             form.addEventListener('submit', function (e) {
                 e.preventDefault(); // Prevent default submission
 
