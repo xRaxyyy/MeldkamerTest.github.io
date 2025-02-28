@@ -3,7 +3,6 @@ import fetch from 'node-fetch';
 export default async function handler(req, res) {
     if (req.method === 'POST') {
         try {
-            // Get the form data from the request body
             const formData = JSON.parse(req.body);
 
             // Add hidden fields required by formsubmit.co
