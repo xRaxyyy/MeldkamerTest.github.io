@@ -57,21 +57,19 @@
             </div>
         </section>
     
-        <form class="contact-form" id="contactForm" action="/api/send-email" method="POST">
-
-            <input type="hidden" name="_captcha" value="false"> 
+        <form class="contact-form" id="contactForm" action="send_email.php" method="POST">
             <input type="hidden" name="_subject" value="Nieuw bericht van de website"> <!-- Set email subject -->
-    
+        
             <div class="info-box">
                 <div class="label" for="naam">Naam</div>
                 <input type="text" id="naam" name="naam" autocomplete="off" placeholder="Pieter Boer" required>
             </div>
-    
+        
             <div class="info-box">
                 <div class="label" for="email">Email</div>
                 <input type="email" id="email" name="email" autocomplete="off" placeholder="jouw@email.com" required>
             </div>
-    
+        
             <div class="info-box dropdown">
                 <div class="toggle-btn">
                     <i class="fa fa-chevron-down"></i>
@@ -85,15 +83,15 @@
                 </ul>
                 <input type="hidden" name="reason" id="reason" value="Selecteer Reden"> <!-- Hidden input for selected reason -->
             </div>
-    
+        
             <div class="info-box">
                 <div class="label" for="bericht">Bericht</div>
                 <textarea id="bericht" name="bericht" autocomplete="off" placeholder="Laat een bericht achter" required></textarea>
             </div>
-    
+        
             <button type="submit">Verzenden</button>
         </form>
-    
+        
         <div id="success-message">
             <p>Bedankt! Uw bericht is verzonden.</p>
         </div>
