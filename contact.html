@@ -156,64 +156,64 @@
             });
 
             // Handle form submission
-            const form = document.getElementById('contactForm');
-            const successMessage = document.getElementById('success-message');
-            const errorMessage = document.getElementById('error-message');
-
-            // Dynamically set the form action using the environment variable
-            const formsubmitEmail = process.env.FORMSUBMIT_EMAIL; // Read from Vercel env vars
-            if (!formsubmitEmail) {
-                console.error("FORMSUBMIT_EMAIL environment variable is not set.");
-                errorMessage.classList.add('show');
-                return;
-            }
-
-            form.action = `https://formsubmit.co/${formsubmitEmail}`;
-
-            // Handle form submission
-            form.addEventListener('submit', function (e) {
-                e.preventDefault(); // Prevent default submission
-
-                fetch(form.action, {
-                    method: form.method,
-                    body: new FormData(form),
-                })
-                .then(response => {
-                    if (response.ok) {
-                        // Show success message
-                        successMessage.classList.add('show');
-                        form.reset(); // Clear the form
-
-                        // Reset the dropdown to "Selecteer Reden"
-                        const dropdown = document.querySelector('.info-dropdown');
-                        dropdown.innerHTML = 'Selecteer Reden';
-                        dropdown.style.color = ''; // Reset the color to default
-
-                        // Reset the hidden input value
-                        const hiddenInput = document.querySelector('#reason');
-                        hiddenInput.value = 'Selecteer Reden';
-
-                        setTimeout(() => {
-                            successMessage.classList.remove('show');
-                        }, 6000);
-                    } else {
+                const form = document.getElementById('contactForm');
+                const successMessage = document.getElementById('success-message');
+                const errorMessage = document.getElementById('error-message');
+            
+                // Dynamically set the form action using the environment variable
+                const formsubmitEmail = NEXT_PUBLIC_FORMSUBMIT_EMAIL; // Access the exposed env var
+                if (!formsubmitEmail) {
+                    console.error("NEXT_PUBLIC_FORMSUBMIT_EMAIL environment variable is not set.");
+                    errorMessage.classList.add('show');
+                    return;
+                }
+            
+                form.action = `https://formsubmit.co/${formsubmitEmail}`;
+            
+                // Handle form submission
+                form.addEventListener('submit', function (e) {
+                    e.preventDefault(); // Prevent default submission
+            
+                    fetch(form.action, {
+                        method: form.method,
+                        body: new FormData(form),
+                    })
+                    .then(response => {
+                        if (response.ok) {
+                            // Show success message
+                            successMessage.classList.add('show');
+                            form.reset(); // Clear the form
+            
+                            // Reset the dropdown to "Selecteer Reden"
+                            const dropdown = document.querySelector('.info-dropdown');
+                            dropdown.innerHTML = 'Selecteer Reden';
+                            dropdown.style.color = ''; // Reset the color to default
+            
+                            // Reset the hidden input value
+                            const hiddenInput = document.querySelector('#reason');
+                            hiddenInput.value = 'Selecteer Reden';
+            
+                            setTimeout(() => {
+                                successMessage.classList.remove('show');
+                            }, 6000);
+                        } else {
+                            // Show error message
+                            errorMessage.classList.add('show');
+                            setTimeout(() => {
+                                errorMessage.classList.remove('show');
+                            }, 6000);
+                        }
+                    })
+                    .catch(error => {
+                        console.error('Error:', error);
                         // Show error message
                         errorMessage.classList.add('show');
                         setTimeout(() => {
                             errorMessage.classList.remove('show');
                         }, 6000);
-                    }
-                })
-                .catch(error => {
-                    console.error('Error:', error);
-                    // Show error message
-                    errorMessage.classList.add('show');
-                    setTimeout(() => {
-                        errorMessage.classList.remove('show');
-                    }, 6000);
+                    });
                 });
             });
-        });
     </script>
 </body>
 </html>
