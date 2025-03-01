@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Environment Variable Test</title>
+  <style>
+    body {
+      font-family: Arial, sans-serif;
+      margin: 20px;
+      text-align: center;
+    }
+    #output {
+      margin-top: 20px;
+      font-size: 18px;
+      color: green;
+    }
+  </style>
+</head>
+<body>
+
+  <h1>Environment Variable Test</h1>
+  <p id="output">Loading...</p>
+
+  <script>
+    // Access the environment variable (only works if prefixed with NEXT_PUBLIC_)
+    const envVar = process.env.NEXT_PUBLIC_TEST_VAR;
+
+    // Check if the environment variable exists
+    if (envVar) {
+      document.getElementById('output').innerText = `Value from env: ${envVar}`;
+    } else {
+      document.getElementById('output').innerText = 'Environment variable not found!';
+    }
+  </script>
+
+</body>
+</html>
