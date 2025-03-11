@@ -1,0 +1,411 @@
+<!DOCTYPE html>
+<html lang="nl" style="overflow: hidden;">
+<head>
+    <meta name="theme-color" content="#131313">
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Contact</title>
+    <link rel="stylesheet" href="stylee.css">
+    <script defer src="scripts/loader.js"></script>
+    <script defer src="scripts/scrollbar.js"></script>
+    <link rel="stylesheet" href="https://cdn-uicons.flaticon.com/uicons-regular-rounded/css/uicons-regular-rounded.css">
+    <link rel="stylesheet" href="https://cdn-uicons.flaticon.com/uicons-bold-rounded/css/uicons-bold-rounded.css">
+    <link rel="stylesheet" href="https://cdn-uicons.flaticon.com/uicons-bold-straight/css/uicons-bold-straight.css">
+    <link rel="stylesheet" href="https://cdn-uicons.flaticon.com/uicons-solid-rounded/css/uicons-solid-rounded.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+
+    <!-- Google tag (gtag.js) -->
+    <script async src="https://www.googletagmanager.com/gtag/js?id=G-C6XN7YM9YV"></script>
+    <script>
+        window.dataLayer = window.dataLayer || [];
+        function gtag() { dataLayer.push(arguments); }
+        gtag('js', new Date());
+        gtag('config', 'G-C6XN7YM9YV');
+    </script>
+</head>
+<body>
+    <section id="showbox-holder">
+        <div id="showbox">
+            <div id="loader-container">
+                <div class="loader">
+                    <svg class="circular" viewBox="25 25 50 50">
+                        <circle class="path" cx="50" cy="50" r="20" fill="none" stroke-width="2" stroke-miterlimit="10" />
+                    </svg>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <div class="scroll-container">
+        <div class="scroll-content">
+    <div id="wrapper">
+        <section id="navbar">
+            <div id="navbar-group">
+                <a href="index.html">
+                    <div id="navbar-button">Home</div>
+                </a>
+                <a href="contact.html">
+                    <div id="navbar-button" class="active">Contact</div>
+                </a>
+                <a href="over-ons.html">
+                    <div id="navbar-button">Over Ons</div>
+                </a>
+            </div>
+        </section>
+
+        <section id="header">
+            <a id="header-logo" href="index.html">
+                <img src="img/logos/Union.png" alt="Logo">
+            </a>
+            <div id="header-text">
+                <h1>HulpdienstVoertuigen</h1>
+                <h2>Neem contact op</h2>
+            </div>
+        </section>
+
+        <form class="contact-form" id="contactForm" action="/send-email" method="POST">
+            <input type="hidden" name="_captcha" value="false">
+            <input type="hidden" name="_subject" value="Nieuw bericht van de website">
+
+            <div class="info-box">
+                <div class="label" for="naam">Naam</div>
+                <input type="text" id="naam" name="naam" autocomplete="off" placeholder="Pieter Boer" required>
+            </div>
+
+            <div class="info-box">
+                <div class="label" for="email">Email</div>
+                <input type="email" id="email" name="email" autocomplete="off" placeholder="jouw@email.com" required>
+            </div>
+
+            <div class="info-box dropdown">
+                <div class="toggle-btn">
+                    <i class="fa fa-chevron-down"></i>
+                </div>
+                <div class="label" for="reason">Reden</div>
+                <div class="info-dropdown">Selecteer Reden</div>
+                <div class="dropdown-wrapper">
+                    <ul class="dropdown-menu">
+                        <li>Ik heb een vraag</li>
+                        <li>Ontbrekende informatie</li>
+                        <li>Informatie moet bijgewerkt worden</li>
+                        <li>Overig</li>
+                    </ul>
+                </div>
+                <input type="hidden" name="reason" id="reason" value="Selecteer Reden">
+            </div>
+
+            <div class="info-box">
+                <div class="label" for="bericht">Bericht</div>
+                <textarea id="bericht" name="bericht" autocomplete="off" placeholder="Laat een bericht achter" required></textarea>
+            </div>
+
+            <!-- Privacy Popup -->
+            <div id="privacyPopup" class="popup">
+                <div class="popup-content">
+                    <span class="close" onclick="closePrivacyPopup()">&times;</span>
+                    <h2>Privacybeleid</h2>
+                    <div class="privacy-text">
+                        <h3>1. Inleiding</h3>
+                        <p>
+                            Welkom bij HulpdienstVoertuigenBeNeLux. Wij hechten veel waarde aan de privacy van onze gebruikers en zorgen ervoor dat persoonlijke gegevens zorgvuldig worden verwerkt en beveiligd. Dit privacybeleid legt uit hoe wij uw naam en e-mailadres verzamelen, gebruiken en beschermen wanneer u het contactformulier op onze website invult.
+                        </p>
+
+                        <h3>2. Welke gegevens verzamelen wij?</h3>
+                        <p>
+                            Wanneer u ons contactformulier invult, verzamelen wij de volgende gegevens:
+                        </p>
+                        <ul>
+                            <li>Naam (zoals door u opgegeven)</li>
+                            <li>E-mailadres</li>
+                        </ul>
+
+                        <h3>3. Doel van de gegevensverwerking</h3>
+                        <p>
+                            Wij gebruiken uw gegevens uitsluitend voor de volgende doeleinden:
+                        </p>
+                        <ul>
+                            <li>Om te reageren op uw vragen of verzoeken die via het contactformulier zijn ingediend.</li>
+                            <li>Om u, indien nodig, aanvullende informatie te verstrekken over onze diensten.</li>
+                        </ul>
+
+                        <h3>4. Bewaartermijn van gegevens</h3>
+                        <p>
+                            Uw naam en e-mailadres worden maximaal 12 maanden bewaard na het laatste contactmoment. Na deze periode worden uw gegevens automatisch en permanent verwijderd, tenzij er een wettelijke verplichting is om ze langer te bewaren.
+                        </p>
+
+                        <h3>5. Delen van gegevens</h3>
+                        <p>
+                            Wij delen uw gegevens niet met derden, tenzij dit wettelijk verplicht is of noodzakelijk is voor de uitvoering van onze diensten (bijvoorbeeld bij een technisch probleem waarbij een IT-dienstverlener ondersteuning biedt).
+                        </p>
+
+                        <h3>6. Beveiliging van uw gegevens</h3>
+                        <p>
+                            Wij nemen passende technische en organisatorische maatregelen om uw persoonsgegevens te beschermen tegen verlies, misbruik of ongeoorloofde toegang.
+                        </p>
+
+                        <h3>7. Uw rechten</h3>
+                        <p>
+                            U heeft het recht om:
+                        </p>
+                        <ul>
+                            <li>Inzage te krijgen in de gegevens die wij van u bewaren.</li>
+                            <li>Correctie of verwijdering van uw gegevens aan te vragen.</li>
+                            <li>Uw toestemming voor het gebruik van uw gegevens in te trekken.</li>
+                        </ul>
+                        <p>
+                            Voor verzoeken met betrekking tot uw gegevens verwijzen wij u naar sectie 9 van dit privacybeleid.
+                        </p>
+
+                        <h3>8. Wijzigingen in dit privacybeleid</h3>
+                        <p>
+                            Wij behouden ons het recht voor om dit privacybeleid te wijzigen. Eventuele updates worden op onze website gepubliceerd. Controleer regelmatig deze pagina voor de meest actuele informatie.
+                        </p>
+
+                        <h3>9. Contact</h3>
+                        <p>
+                            Voor vragen over dit privacybeleid kunt u contact met ons opnemen via:
+                        </p>
+                        <ul>
+                            <li>HulpdienstVoertuigenBeNeLux</li>
+                            <li><a href="mailto:hulpdienstvoertuigenbenelux@gmail.com">hulpdienstvoertuigenbenelux@gmail.com</a></li>
+                            <li><a href="https://hulpdienstvoertuigenbenelux.vercel.app/" target="_blank">https://hulpdienstvoertuigenbenelux.vercel.app/</a></li>
+                        </ul>                        
+                        <p>
+                            Dit privacybeleid is voor het laatst bijgewerkt op [datum van publicatie].
+                        </p>
+                        <div class="custom-scrollbar-popup">
+                            <div class="scrollbar-thumb"></div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <button type="submit">Verzenden</button>
+
+            <div class="privacy-note">
+                <h1>Door het indienen van het formulier ga ik akkoord met het <a onclick="showPrivacyPopup()">Privacybeleid</a></h1>
+            </div>
+        </form>
+
+        <div id="success-message">
+            <p>Bedankt! Uw bericht is verzonden.</p>
+        </div>
+
+        <div id="error-message">
+            <p>Er is iets misgegaan. Probeer het later opnieuw.</p>
+        </div>
+    </div>
+
+    <div class="custom-scrollbar-body">
+        <div class="scrollbar-thumb"></div>
+    </div>
+</body>
+
+
+    <script>
+        // Dropdown functionality
+        const dropdownButtons = document.querySelectorAll('.info-box.dropdown .toggle-btn');
+        const dropdownMenus = document.querySelectorAll('.dropdown-wrapper');
+    
+        function closeAllDropdowns() {
+            dropdownMenus.forEach(menu => menu.classList.remove('active'));
+            dropdownButtons.forEach(button => {
+                button.classList.remove('active');
+                button.parentElement.classList.remove('active');
+            });
+        }
+    
+        dropdownButtons.forEach(button => {
+            button.addEventListener('click', function (e) {
+                e.stopPropagation();
+                const menu = this.parentElement.querySelector('.dropdown-wrapper');
+                if (menu.classList.contains('active')) {
+                    menu.classList.remove('active');
+                    this.classList.remove('active');
+                    this.parentElement.classList.remove('active');
+                } else {
+                    closeAllDropdowns();
+                    menu.classList.add('active');
+                    this.classList.add('active');
+                    this.parentElement.classList.add('active');
+                }
+            });
+        });
+    
+        document.addEventListener('click', function (e) {
+            if (!e.target.closest('.info-box.dropdown')) {
+                closeAllDropdowns();
+            }
+        });
+    
+        dropdownMenus.forEach(menu => {
+            menu.addEventListener('click', function (e) {
+                if (e.target.tagName === 'LI') {
+                    const button = this.closest('.info-box.dropdown').querySelector('.info-dropdown');
+                    const hiddenInput = this.closest('.info-box.dropdown').querySelector('#reason');
+                    button.innerHTML = `<span class="selected-text">${e.target.textContent}</span>`;
+                    hiddenInput.value = e.target.textContent;
+                    closeAllDropdowns(); // Close the dropdown after selecting an option
+                }
+            });
+        });
+    
+        // Form submission handling
+        const form = document.getElementById('contactForm');
+        const successMessage = document.getElementById('success-message');
+        const errorMessage = document.getElementById('error-message');
+    
+        if (form) {
+            form.addEventListener('submit', function (e) {
+                e.preventDefault();
+    
+                const formData = new FormData(form);
+    
+                fetch('/send-email', {
+                    method: 'POST',
+                    headers: {
+                        'Content-Type': 'application/json'
+                    },
+                    body: JSON.stringify(Object.fromEntries(formData))
+                })
+                    .then(response => response.json())
+                    .then(data => {
+                        if (data.message === 'Email sent successfully.') {
+                            successMessage.classList.add('show');
+                            form.reset();
+    
+                            const dropdown = document.querySelector('.info-dropdown');
+                            dropdown.innerHTML = 'Selecteer Reden';
+                            dropdown.style.color = '';
+    
+                            const hiddenInput = document.querySelector('#reason');
+                            hiddenInput.value = 'Selecteer Reden';
+    
+                            setTimeout(() => {
+                                successMessage.classList.remove('show');
+                            }, 6000);
+                        } else {
+                            errorMessage.classList.add('show');
+                            setTimeout(() => {
+                                errorMessage.classList.remove('show');
+                            }, 6000);
+                        }
+                    })
+                    .catch(error => {
+                        console.error('Error:', error);
+                        errorMessage.classList.add('show');
+                        setTimeout(() => {
+                            errorMessage.classList.remove('show');
+                        }, 6000);
+                    });
+            });
+        }
+    
+        // Privacy Popup functionality
+        const privacyPopup = document.getElementById('privacyPopup');
+        const privacyText = document.querySelector('.privacy-text');
+        const scrollbarThumb = document.querySelector('.custom-scrollbar-popup .scrollbar-thumb');
+        let allowClose = false;
+    
+        function showPrivacyPopup() {
+            if (privacyPopup) {
+                privacyPopup.classList.add('active');
+                updateScrollbar();
+                disableClosing();
+            }
+        }
+    
+        function closePrivacyPopup() {
+            if (privacyPopup) {
+                privacyPopup.classList.remove('active');
+                allowClose = false;
+            }
+        }
+    
+        function disableClosing() {
+            allowClose = false;
+            setTimeout(enableClosing, 1000);
+        }
+    
+        function enableClosing() {
+            allowClose = true;
+        }
+    
+        if (privacyPopup && privacyText && scrollbarThumb) {
+            const MIN_THUMB_HEIGHT = 30;
+    
+            function updateScrollbar() {
+                const contentHeight = privacyText.scrollHeight;
+                const wrapperHeight = privacyText.clientHeight;
+    
+                if (contentHeight <= 0 || wrapperHeight <= 0) return;
+    
+                let thumbHeight = (wrapperHeight / contentHeight) * wrapperHeight;
+                thumbHeight = Math.max(thumbHeight, MIN_THUMB_HEIGHT);
+                thumbHeight = Math.min(thumbHeight, wrapperHeight);
+    
+                scrollbarThumb.style.height = `${thumbHeight}px`;
+    
+                const scrollTop = privacyText.scrollTop;
+                const maxScrollTop = contentHeight - wrapperHeight;
+                let thumbPosition = (scrollTop / maxScrollTop) * (wrapperHeight - thumbHeight);
+                thumbPosition = Math.min(thumbPosition, wrapperHeight - thumbHeight);
+    
+                scrollbarThumb.style.top = `${thumbPosition}px`;
+            }
+    
+            privacyText.addEventListener('scroll', updateScrollbar);
+            window.addEventListener('resize', updateScrollbar);
+    
+            privacyPopup.addEventListener('click', function (e) {
+                if (e.target === privacyPopup && allowClose) {
+                    closePrivacyPopup();
+                }
+            });
+    
+            let isDragging = false;
+    
+            scrollbarThumb.addEventListener('mousedown', (e) => {
+                isDragging = true;
+                document.body.style.userSelect = 'none';
+                document.body.style.pointerEvents = 'none';
+                scrollbarThumb.style.pointerEvents = 'none';
+    
+                const initialY = e.clientY;
+                const initialThumbPosition = parseFloat(scrollbarThumb.style.top || 0);
+    
+                function drag(e) {
+                    if (!isDragging) return;
+    
+                    const deltaY = e.clientY - initialY;
+                    const newThumbPosition = initialThumbPosition + deltaY;
+    
+                    const wrapperHeight = privacyText.clientHeight;
+                    const thumbHeight = parseFloat(scrollbarThumb.style.height || 0);
+                    const maxThumbPosition = wrapperHeight - thumbHeight;
+    
+                    const clampedPosition = Math.min(Math.max(newThumbPosition, 0), maxThumbPosition);
+    
+                    scrollbarThumb.style.top = `${clampedPosition}px`;
+    
+                    const scrollTop = (clampedPosition / maxThumbPosition) * (privacyText.scrollHeight - privacyText.clientHeight);
+                    privacyText.scrollTop = scrollTop;
+                }
+    
+                function stopDrag() {
+                    isDragging = false;
+                    document.body.style.userSelect = '';
+                    scrollbarThumb.style.pointerEvents = '';
+                    document.body.style.pointerEvents = '';
+                    document.removeEventListener('mousemove', drag);
+                    document.removeEventListener('mouseup', stopDrag);
+                }
+    
+                document.addEventListener('mousemove', drag);
+                document.addEventListener('mouseup', stopDrag);
+            });
+        }
+    </script>
+
+</body>
+</html>
